@@ -114,148 +114,6 @@
         var prgsDiv = document.getElementById("prgs");
 		
 		var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		
-	var config = {
-            type: 'line',
-            data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [{
-                    label: "My First dataset",
-                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
-                    fill: false,
-                    borderDash: [5, 5],
-                }]
-            },
-            options: {
-                responsive: true,
-                title:{
-                    display:true,
-                    text:'Chart.js Line Chart'
-                },
-                tooltips: {
-                    mode: 'label',
-                    callbacks: {
-                        // beforeTitle: function() {
-                        //     return '...beforeTitle';
-                        // },
-                        // afterTitle: function() {
-                        //     return '...afterTitle';
-                        // },
-                        // beforeBody: function() {
-                        //     return '...beforeBody';
-                        // },
-                        // afterBody: function() {
-                        //     return '...afterBody';
-                        // },
-                        // beforeFooter: function() {
-                        //     return '...beforeFooter';
-                        // },
-                        // footer: function() {
-                        //     return 'Footer';
-                        // },
-                        // afterFooter: function() {
-                        //     return '...afterFooter';
-                        // },
-                    }
-                },
-                hover: {
-                    mode: 'dataset'
-                },
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            show: true,
-                            labelString: 'Month'
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            show: true,
-                            labelString: 'Value'
-                        },
-                        ticks: {
-                            suggestedMin: -10,
-                            suggestedMax: 250,
-                        }
-                    }]
-                }
-            }
-        };
-		
-		$.each(config.data.datasets, function(i, dataset) {
-            dataset.borderColor = randomColor(0.4);
-            dataset.backgroundColor = randomColor(0.5);
-            dataset.pointBorderColor = randomColor(0.7);
-            dataset.pointBackgroundColor = randomColor(0.5);
-            dataset.pointBorderWidth = 1;
-        });
-		
-		window.onload = function() {
-            var ctx = document.getElementById("canvas").getContext("2d");
-            window.myLine = new Chart(ctx, config);
-        };
-		
-        function btnStartClick() {
-            //set config values
-			SomApi.config.sustainTime = document.getElementById("sustainTime").value;
-            SomApi.config.testServerEnabled = document.getElementById("testServerEnabled").checked;
-            SomApi.config.userInfoEnabled = document.getElementById("userInfoEnabled").checked;
-            SomApi.config.latencyTestEnabled = document.getElementById("latencyTestEnabled").checked;
-            SomApi.config.uploadTestEnabled = document.getElementById("uploadTestEnabled").checked;
-            SomApi.config.progress.enabled = document.getElementById("progress.enabled").checked;
-            SomApi.config.progress.verbose = document.getElementById("progress.verbose").checked;
-
-            msgDiv.innerHTML = "<h3>--------------- Test Result ---------------</h3><h4>" +
-                "Speed test in progress. Please wait...</h4>";
-            SomApi.startTest();
-        }
-
-        function onTestCompleted(testResult) {
-            msgDiv.innerHTML = "<h3>--------------- Test Result ---------------</h3><h4>" +
-                "Download: " + testResult.download + " Mbps <br/>" +
-                "Upload: " + testResult.upload + " Mbps <br/>" +
-                "Latency: " + testResult.latency + " ms <br/>" +
-                "Jitter: " + testResult.jitter + " ms <br/>" +
-                "Test Server: " + testResult.testServer + "<br/>" +
-                "IP: " + testResult.ip_address + "<br/>" +
-                "Hostname: " + testResult.hostname + "<br/>" +
-            "</h4>";
-        }
-
-        function onError(error) {
-            msgDiv.innerHTML = "Error " + error.code + ": " + error.message;
-        }
-
-        function onProgress(progress) {
-            prgsDiv.innerHTML =
-            "<h3>--------------- Progress ---------------</h3><h4>" +
-                "Progress Type: " + progress.type + "<br/>" +
-                "Pass: " + progress.pass + "<br/>" +
-                "Percent Done: " + progress.percentDone + "% <br/>" +
-                "Current Speed: " + progress.currentSpeed + " Mbps <br/>" +
-            "</h4>";
-			var newDataset = {
-                label: 'Dataset ' + config.data.datasets.length,
-                borderColor: randomColor(0.4),
-                backgroundColor: randomColor(0.5),
-                pointBorderColor: randomColor(0.7),
-                pointBackgroundColor: randomColor(0.5),
-                pointBorderWidth: 1,
-                data: [],
-            };
-
-            for (var index = 0; index < config.data.labels.length; ++index) {
-                newDataset.data.push(progress.currentSpeed);
-            }
-
-            config.data.datasets.push(newDataset);
-            window.myLine.update();
-        }
-    </script>
-	<script>
-        var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         
         var randomScalingFactor = function() {
             return Math.round(Math.random() * 100);
@@ -440,6 +298,9 @@
 
             window.myLine.update();
         });
+    </script>
+	<script>
+        
     </script>
   </body>
 </html>
