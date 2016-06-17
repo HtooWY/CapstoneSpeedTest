@@ -325,7 +325,8 @@
         function onError(error) {
             msgDiv.innerHTML = "Error " + error.code + ": " + error.message;
         }
-
+		
+		var count=0
         function onProgress(progress) {
             prgsDiv.innerHTML =
             "<h3>--------------- Progress ---------------</h3><h4>" +
@@ -334,16 +335,21 @@
                 "Percent Done: " + progress.percentDone + "% <br/>" +
                 "Current Speed: " + progress.currentSpeed + " Mbps <br/>" +
             "</h4>";
-			if (config.data.datasets.length > 0) {
-                var month = MONTHS[config.data.labels.length % MONTHS.length];
-                config.data.labels.push(month);
+			if (count>10){
+				if (config.data.datasets.length > 0) {
+					var month = MONTHS[config.data.labels.length % MONTHS.length];
+					config.data.labels.push(month);
 
-                $.each(config.data.datasets, function(i, dataset) {
-                    dataset.data.push(progress.currentSpeed);
-                });
+					$.each(config.data.datasets, function(i, dataset) {
+						dataset.data.push(progress.currentSpeed);
+					});
 
-                window.myLine.update();
-            }
+					window.myLine.update();
+				}
+				count=0
+			}
+			count+=1
+			
 			
         }
     </script>
