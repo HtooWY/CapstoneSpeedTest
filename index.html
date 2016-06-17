@@ -333,16 +333,7 @@
                 "Current Speed: " + progress.currentSpeed + " Mbps <br/>" +
             "</h4>";
 			
-			if (config.data.datasets.length > 0) {
-                var month = MONTHS[config.data.labels.length % MONTHS.length];
-                config.data.labels.push(month);
-
-                $.each(config.data.datasets, function(i, dataset) {
-                    dataset.data.push(randomScalingFactor());
-                });
-
-                window.myLine.update();
-            }
+			
         }
     </script>
 	<script>
