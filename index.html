@@ -137,6 +137,7 @@
                     data: [],
                     fill: true,
 					backgroundColor:'rgba(0, 255, 0, 0.3)',
+					pointBorderWidth: 1,
                     
                 }]
             },
@@ -198,13 +199,7 @@
             }
         };
 
-        $.each(config.data.datasets, function(i, dataset) {
-            dataset.borderColor = randomColor(0.4);
-            dataset.backgroundColor = randomColor(0.5);
-            dataset.pointBorderColor = randomColor(0.7);
-            dataset.pointBackgroundColor = randomColor(0.5);
-            dataset.pointBorderWidth = 1;
-        });
+        
 
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
