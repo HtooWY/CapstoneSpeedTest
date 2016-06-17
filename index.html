@@ -305,15 +305,7 @@
             msgDiv.innerHTML = "<h3>--------------- Test Result ---------------</h3><h4>" +
                 "Speed test in progress. Please wait...</h4>";
             SomApi.startTest();
-			if (config.data.datasets.length > 0) {
-                var month = MONTHS[config.data.labels.length % MONTHS.length];
-                config.data.labels.push(month);
-
-                $.each(config.data.datasets, function(i, dataset) {
-                    dataset.data.push(randomScalingFactor());
-                });
-
-                window.myLine.update();
+			
         }
 
         function onTestCompleted(testResult) {
