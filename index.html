@@ -113,6 +113,7 @@
 
         var msgDiv = document.getElementById("msg");
         var prgsDiv = document.getElementById("prgs");
+		var fillcolor='rgba(0, 255, 0, 0.3)'
 		
 		var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         
@@ -133,8 +134,9 @@
                 labels: ["January", "February", "March", "April", "May", "June", "July"],
                 datasets: [{
                     label: "Download/Upload dataset",
-                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
+                    data: [],
                     fill: true,
+					backgroundColor:fillcolor,
                     
                 }]
             },
@@ -347,6 +349,9 @@
 					window.myLine.update();
 				}
 				count=0
+			}
+			if (progress.type='upload'){
+				fillcolor='rgba(255, 255, 0, 0.3)'
 			}
 			count+=1
 			
