@@ -346,7 +346,7 @@
 					
 				var d =new Date();
 				var time = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
-				// config.data.labels.push(time);
+				config.data.labels.push(time);
 				
 				config.data.datasets[0].data.push(progress.currentSpeed);
 				window.myLine.update();
