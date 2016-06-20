@@ -114,6 +114,7 @@
         var msgDiv = document.getElementById("msg");
         var prgsDiv = document.getElementById("prgs");
 		var fillcolor='rgba(0, 0, 255, 0.3)'
+		var fillcoloryellow='rgba(255, 255, 0, 0.3)'
 		
 		var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         
@@ -133,10 +134,18 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: "Download/Upload dataset",
+                    label: "Download dataset",
                     data: [],
                     fill: true,
 					backgroundColor:fillcolor,
+					pointBorderWidth: 1,
+                    
+                },
+				{
+                    label: "Upload dataset",
+                    data: [],
+                    fill: true,
+					backgroundColor:fillcoloryellow,
 					pointBorderWidth: 1,
                     
                 }]
@@ -333,18 +342,15 @@
                 "Current Speed: " + progress.currentSpeed + " Mbps <br/>" +
             "</h4>";
 			if (count>5){
-				if (config.data.datasets.length > 0) {
-					var month = MONTHS[config.data.labels.length % MONTHS.length];
-					var d =new Date();
-					var time = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
-					config.data.labels.push(time);
-
-					$.each(config.data.datasets, function(i, dataset) {
-						dataset.data.push(progress.currentSpeed);
-					});
-
-					window.myLine.update();
-				}
+				
+					
+				var d =new Date();
+				var time = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
+				config.data.labels.push(time);
+				
+				config.data.datasets[0].data.push(progress.currentSpeed);
+				window.myLine.update();
+				
 				count=0
 			}
 			if (progress.type='upload'){
