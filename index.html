@@ -433,6 +433,8 @@ $(function () {
                 "Percent Done: " + progress.percentDone + "% <br/>" +
                 "Current Speed: " + progress.currentSpeed + " Mbps <br/>" +
             "</h4>";
+			<!-- -->
+			/*
 			if (count>5){
 				
 					
@@ -452,7 +454,29 @@ $(function () {
 			}
 			
 			count+=1
+			*/
+			if (count>10){
+				
+					
+				var d =new Date();
+				var time = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
+				config.data.labels.push(time);
+				
+				
+				count=0
+			} else{
+				config.data.labels.push('');
+			}
 			
+			if (progress.type=="download"){
+				config.data.datasets[0].data.push(progress.currentSpeed);
+				config.data.datasets[1].data.push(null);
+			} else {
+				config.data.datasets[1].data.push(progress.currentSpeed);
+			}
+			
+			window.myLine.update();
+			count+=1
 			
         }
     </script>
