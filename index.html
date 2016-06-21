@@ -469,6 +469,7 @@ $(function () {
             msgDiv.innerHTML = "Error " + error.code + ": " + error.message;
         }
 		
+		var pass=0
 		var count=0
         function onProgress(progress) {
             prgsDiv.innerHTML =
@@ -522,10 +523,15 @@ $(function () {
 			
 			window.myLine.update();
 			count+=1
+			if (pass==progress.pass){
+				configPie.data.datasets[0].data[0]=progress.percentDone
+				configPie.data.datasets[0].data[1]=100-progress.percentDone
+			}else {
+				configPie.data.datasets[0].data[0]=0
+				configPie.data.datasets[0].data[1]=100
+			}
 			
-			configPie.data.datasets[0].data[0]+=progress.percentDone
-			configPie.data.datasets[0].data[1]-=progress.percentDone
-  
+			pass=progress.pass
 			window.myPie.update();
 			
         }
