@@ -351,7 +351,7 @@ $(function () {
 			window.myPie = new Chart(ctxpie, configPie);
 			var ctx = document.getElementById("canvas").getContext("2d");
             window.myLine  = new Chart(ctx, config);
-			textDiv.innerHTML = "Pass: 0<br/>Percent Done: 0%";
+			textDiv.innerHTML = "<center>Pass: 0</center><br/><center>Percent Done: 0%</center>";
         };
 
         $('#randomizeData').click(function() {
@@ -486,7 +486,7 @@ $(function () {
                 "Current Speed: " + progress.currentSpeed + " Mbps <br/>" +
             "</h4>";
 			
-			textDiv.innerHTML = "Pass: "+progress.pass+"<br/>Percent Done: "+progress.percentDone+"%";
+			textDiv.innerHTML = "<center>Pass: "+progress.pass+"</center><br/><center>Percent Done: "+progress.percentDone+"%</center>";
 			<!-- -->
 			/*
 			if (count>5){
