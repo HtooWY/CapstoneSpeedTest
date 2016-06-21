@@ -307,8 +307,8 @@ $(function () {
 
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
-            linechart = new Chart(ctx, config);
-			window.myline = linechart;
+            window.myline  = new Chart(ctx, config);
+			
         };
 
         $('#randomizeData').click(function() {
