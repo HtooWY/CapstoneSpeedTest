@@ -336,12 +336,12 @@ $(function () {
         
 
         window.onload = function() {
-            //var ctx = document.getElementById("canvas").getContext("2d");
-            //window.myLine  = new Chart(ctx, config);
+            
 			
 			var ctxpie = document.getElementById("chart-area").getContext("2d");
 			window.myPie = new Chart(ctxpie, configPie);
-			
+			var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine  = new Chart(ctx, config);
         };
 
         $('#randomizeData').click(function() {
