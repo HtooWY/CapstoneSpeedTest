@@ -439,8 +439,13 @@ $(function () {
 				var d =new Date();
 				var time = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
 				config.data.labels.push(time);
+				if (progress.type=="download"){
+					config.data.datasets[0].data.push(progress.currentSpeed);
+					config.data.datasets[1].data.push(null);
+				} else {
+					config.data.datasets[1].data.push(progress.currentSpeed);
+				}
 				
-				config.data.datasets[0].data.push(progress.currentSpeed);
 				window.myLine.update();
 				
 				count=0
