@@ -202,7 +202,8 @@ $(function () {
         SomApi.onTestCompleted = onTestCompleted;
         SomApi.onError = onError;
         SomApi.onProgress = onProgress;
-
+	
+		var linechart;
         var msgDiv = document.getElementById("msg");
         var prgsDiv = document.getElementById("prgs");
 		var fillcolor='rgba(0, 0, 255, 0.3)'
@@ -306,7 +307,8 @@ $(function () {
 
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
-            window.myLine = new Chart(ctx, config);
+            linechart = new Chart(ctx, config);
+			window.line = linechart;
         };
 
         $('#randomizeData').click(function() {
@@ -406,7 +408,10 @@ $(function () {
             msgDiv.innerHTML = "<h3>--------------- Test Result ---------------</h3><h4>" +
                 "Speed test in progress. Please wait...</h4>";
             SomApi.startTest();
-			
+			linechart.destroy();
+			var ctx = document.getElementById("canvas").getContext("2d");
+            linechart = new Chart(ctx, config);
+			window.line = linechart;
 			
         }
 
