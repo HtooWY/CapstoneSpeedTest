@@ -171,9 +171,12 @@ $(function () {
         
 
     </div><!-- /.container -->
-	<div class="container" style="margin-top=500">
+	<div style="margin-top=500">
 	<div style="width:75%;">
         <canvas id="canvas"></canvas>
+    </div>
+	<div id="canvas-holder" style="width:50%">
+        <canvas id="chart-area" width="300" height="300" />
     </div>
 	
 	</div>
@@ -302,12 +305,39 @@ $(function () {
                 }
             }
         };
+		
+		var configPie = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    0,
+					100,
 
+                ],
+                backgroundColor: [
+                    "#F7464A",
+
+                ],
+            
+            }],
+            labels: [
+                "Red",
+                
+            ]
+        },
+        options: {
+            responsive: true
+        }
+    };
         
 
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
             window.myLine  = new Chart(ctx, config);
+			
+			var ctxpie = document.getElementById("chart-area").getContext("2d");
+			window.myPie = new Chart(ctxpie, configpie);
 			
         };
 
