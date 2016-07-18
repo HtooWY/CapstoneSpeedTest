@@ -122,6 +122,14 @@
                 "IP: " + testResult.ip_address + "<br/>" +
                 "Hostname: " + testResult.hostname + "<br/>" +
             "</h4>";
+
+            var JSONobject = {download: testResult.download,upload: testResult.upload, latency: testResult.latency, jitter: testResult.jitter, testServer: testResult.testServer, ip:testResult.ip_address, hostname:testResult.hostname};
+            var jsonData = JSON.stringify( JSONobject );
+
+            $.post("resultSubmission.pphp",{json_string:jsonData});
+            
+
+
         }
 
         function onError(error) {
