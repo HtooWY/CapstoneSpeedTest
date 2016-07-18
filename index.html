@@ -222,7 +222,7 @@ $(function () {
 	<!-- ########## -->
 	<script>
         SomApi.account = "SOM5768d36e43cd5";  // API Key here
-        SomApi.domainName = "skyeyespeedtest.herokuapp.com";
+        SomApi.domainName = "capstonespeedtest.herokuapp.com";
         SomApi.onTestCompleted = onTestCompleted;
         SomApi.onError = onError;
         SomApi.onProgress = onProgress;
@@ -480,10 +480,13 @@ $(function () {
                 "Hostname: " + testResult.hostname + "<br/>" +
             "</h4>";
             
-            // var JSONobject = {download: testResult.download,upload: testResult.upload, latency: testResult.latency, jitter: testResult.jitter, testServer: testResult.testServer, ip:testResult.ip_address, hostname:testResult.hostname};
-            // var jsonData = JSON.stringify( JSONobject );
+            // 
 
-            // $.post("resultSubmission.php",{json_string:jsonData});
+
+
+
+
+            
         }
 
         function onError(error) {
