@@ -15,7 +15,7 @@ if (!$conn) {
 echo "Connected successfully";
 
 //Select database to use
-myusqli_select_db($conn,"capstone");
+mysqli_select_db($conn,"capstone");
 
 //Arrange an SQL statement
 $sql = "INSERT INTO capstone.capstonespeedtest VALUES (default, $_POST[download], $_POST[upload], $_POST[latency], $_POST[jitter], $_POST[testServer], $_POST[ip], $_POST[hostname], NOW());"
