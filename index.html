@@ -529,7 +529,7 @@ $(function () {
 			});
 			*/
 			$.ajax({
-				url:'/addresult.php',
+				url:'addresult.php',
 				type:'POST',
 				/*
 				data: {download: JSON.stringify(testResult.download),
@@ -541,7 +541,7 @@ $(function () {
 				
 				//JSON.stringify(data),
 				processData: false,
-				//contentType: "application/json; charset=utf-8",
+				contentType: "application/json; charset=utf-8",
 				//dataType: "json",
 				async: true,
 			    //data: "download="+testResult.download+"&upload="+testResult.upload,

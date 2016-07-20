@@ -11,9 +11,15 @@ $dbname = "capstone";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+echo '<script>';
+echo 'console.log("haha")';
+echo '</script>';
 // Check connection
 if ($conn) {
     die("Connection failed: " . mysqli_connect_error());
+	echo '<script>';
+	echo 'console.log('. mysqli_connect_error().')';
+	echo '</script>';
 } 
 echo "Connected successfully";
 
