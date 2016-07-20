@@ -15,11 +15,12 @@ echo '<script>';
 echo 'console.log("haha")';
 echo '</script>';
 // Check connection
-if ($conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if (!$conn) {
 	echo '<script>';
 	echo 'console.log('. mysqli_connect_error().')';
 	echo '</script>';
+    die("Connection failed: " . mysqli_connect_error());
+	
 } 
 echo "Connected successfully";
 
