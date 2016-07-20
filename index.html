@@ -528,36 +528,12 @@ $(function () {
 				}
 			});
 			*/
-			$.ajax({
-				url:'addresult.php',
-				type:'POST',
-				/*
-				data: {download: JSON.stringify(testResult.download),
-					   upload : JSON.stringify(testResult.upload)},
-					   */
-				//data: '{download: "1",upload:"2"}',
-				//data: {download:1,upload:2},
-				data: jsonData,
-				
-				//JSON.stringify(data),
-				processData: false,
-				contentType: "application/json; charset=utf-8",
-				//dataType: "json",
-				async: true,
-			    //data: "download="+testResult.download+"&upload="+testResult.upload,
-				/* dataType:'json', */
-				success:function(result)//we got the response
-			   {
-				alert('Successfully called');
-			   },
-			    error:function(exception){alert('Exeption:'+exception);}
-				
-			});
-
+			$.post("/addresult.php",{json_string:jsonData});
+			
 			//##############################################/
-			/**
+			/*
             $.post("/resultSubmission.php",{json_string:jsonData});
-			**/
+			*/
 //##############################################/
 
 

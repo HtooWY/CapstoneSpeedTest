@@ -4,7 +4,7 @@ echo '<script>';
 echo 'console.log("ayy lmao")';
 echo '</script>';
 
-$servername = "capstoneskyeye.cfyrhe0diz6p.us-west-2.rds.amazonaws.com";
+$servername = "capstoneskyeye.cfyrhe0diz6p.us-west-2.rds.amazonaws.com:3306";
 $username = "calvinlee708";
 $password = "chwb5278";
 $dbname = "capstone";
