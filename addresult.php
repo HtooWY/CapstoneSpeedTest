@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html>
-<body>
-<?php
 
+<?php
+echo '<script>';
+echo 'console.log("ayy lmao")';
+echo '</script>';
 
 $servername = "capstoneskyeye.cfyrhe0diz6p.us-west-2.rds.amazonaws.com";
 $username = "calvinlee708";
@@ -30,5 +30,3 @@ echo '</script>';
 
 mysqli_close($conn);
 ?>
-</body>
-</html>
