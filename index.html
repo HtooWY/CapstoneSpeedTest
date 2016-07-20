@@ -516,7 +516,7 @@ $(function () {
                 "Hostname: " + testResult.hostname + "<br/>" +
             "</h4>";
 
-            var JSONobject = {download: testResult.download,upload: testResult.upload};
+            var JSONobject = {"download": testResult.download,"upload": testResult.upload};
 			var jsonData = JSON.stringify( JSONobject );
 			
 			/*
@@ -538,7 +538,6 @@ $(function () {
 				//data: '{download: "1",upload:"2"}',
 				//data: {download:1,upload:2},
 				data: jsonData,
-				async: false,
 				
 				//JSON.stringify(data),
 				processData: false,
