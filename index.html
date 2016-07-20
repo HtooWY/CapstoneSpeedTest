@@ -528,7 +528,11 @@ $(function () {
 				}
 			});
 			*/
-			$.post("/addresult.php",{json_string:jsonData});
+			$.post("/addresult.php",jsonData,function(result)//we got the response
+			   {
+				alert('Successfully called');
+			   },
+			    error:function(exception){alert('Exeption:'+exception);});
 			
 			//##############################################/
 			/*
