@@ -21,7 +21,7 @@ $download=$_POST['download'];
 $upload = $_POST['upload'];
 
 $sql = "INSERT INTO capstone.capstonespeedtest (download, upload, latency,jitter,test_server,ip_address,hostname,timestamp)
-VALUES ($download, $upload, 0, test, test, test,null)";
+VALUES ($download, $upload, 0, 0, 0, 'test',null)";
 
 $result = mysqli_query($conn,$sql);
 echo '<script>';
