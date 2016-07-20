@@ -18,7 +18,7 @@ echo "Connected successfully";
 mysqli_select_db($conn,"capstone");
 
 //Arrange an SQL statement
-$sql = "INSERT INTO capstone.capstonespeedtest VALUES (default, $_POST[download], $_POST[upload], $_POST[latency], $_POST[jitter], $_POST[testServer], $_POST[ip], $_POST[hostname], NOW());"
+$sql = "INSERT INTO capstone.capstonespeedtest VALUES (default, $_POST[download], $_POST[upload], $_POST[latency], $_POST[jitter], $_POST[testServer], $_POST[ip], $_POST[hostname], NOW());";
 
 //Query using the arranged SQL statment and retrieve the result from the DB.
 $result = mysqli_query($conn, $sql);
