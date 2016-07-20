@@ -530,7 +530,7 @@ $(function () {
 			*/
 			$.ajax({
 				url:'/addresult.php',
-				type:'POST',
+				type:'GET',
 				/*
 				data: {download: JSON.stringify(testResult.download),
 					   upload : JSON.stringify(testResult.upload)},
@@ -544,6 +544,7 @@ $(function () {
 				processData: false,
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
+				async: true,
 			    //data: "download="+testResult.download+"&upload="+testResult.upload,
 				/* dataType:'json', */
 				success:function(result)//we got the response
