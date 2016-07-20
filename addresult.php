@@ -24,7 +24,9 @@ $sql = "INSERT INTO capstone.capstonespeedtest (download, upload, latency,jitter
 VALUES ($download, $upload, 0, test, test, test,null)";
 
 $result = mysqli_query($conn,$sql);
-
+echo '<script>';
+echo 'console.log('. json_encode( 'ayy lmao' ) .')';
+echo '</script>';
 
 mysqli_close($conn);
 ?>
