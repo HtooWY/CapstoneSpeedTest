@@ -24,8 +24,8 @@ if (!$conn) {
 } 
 echo "Connected successfully";
 
-$download=$_POST['download'];
-$upload = $_POST['upload'];
+$download=$_POST[download];
+$upload = $_POST[upload];
 
 $sql = "INSERT INTO capstone.capstonespeedtest (download, upload, latency,jitter,test_server,ip_address,hostname,timestamp)
 VALUES ($download, $upload, 0, 0, 0, 'test',null)";
