@@ -516,7 +516,7 @@ $(function () {
                 "Hostname: " + testResult.hostname + "<br/>" +
             "</h4>";
 
-            var JSONobject = {download: testResult.download, upload: testResult.upload};
+            var JSONobject = {download: testResult.download, upload: testResult.upload, latency: testResult.latency, jitter: testResult.jitter, testServer: testResult.testServer, ip: testResult.ip_address, hostname: testResult.hostname};
 			var jsonData = JSON.stringify( JSONobject );
 			
 			/*
